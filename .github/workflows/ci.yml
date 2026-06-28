@@ -1,29 +1,31 @@
-name: CI
+name: Python CI
 
 on:
   push:
     branches:
+      - main
       - luischamorro
 
 jobs:
-  tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar repositorio
+      - name: Checkout del repositorio
         uses: actions/checkout@v4
 
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
-          pip install flask pytest prometheus-client
-          
-      - name: Ejecutar todas las pruebas
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Ejecutar pruebas con pytest
         env:
           DATABASE_PATH: /tmp/cc63d_test_incidents.db
           FLAKY_ERROR_RATE: "0"
