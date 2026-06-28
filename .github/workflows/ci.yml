@@ -25,6 +25,10 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
 
+      - name: Ejecuta Lint con Ruff
+        run: |
+          ruff check .
+
       - name: Ejecutar pruebas con pytest
         env:
           DATABASE_PATH: /tmp/cc63d_test_incidents.db
