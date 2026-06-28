@@ -12,7 +12,7 @@ Tu tarea es **armar la pipeline de Integración Continua** que ejecuta esas prue
 2. **Crea** `.github/workflows/ci.yml` con las etapas de la pipeline (ver abajo).
 3. **Deja un run rojo**: haz un cambio que **rompa una prueba**, `commit` y `push` → el run de Actions falla 🔴.
 4. **Déjalo verde**: **restaura** el cambio, `commit` y `push` → el run pasa 🟢.
-5. **Entrega** el enlace a tu fork. **No borres los runs**: el rojo y el verde se revisan.
+5. **Entrega** el enlace a tu fork. **No borres los runs**: el rojo y el verde se revisan..
 
 ### Las etapas que debe tener tu `ci.yml`
 
