@@ -2,6 +2,7 @@ import os
 import random
 import sqlite3
 import time
+import sys
 from datetime import datetime, timezone
 
 from flask import Flask, Response, g, jsonify, request, send_from_directory
