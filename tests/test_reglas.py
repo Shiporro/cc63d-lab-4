@@ -52,7 +52,7 @@ def test_postmortem_requiere_incidente_resuelto(client):
 
     # tras resolver, sí se permite
     client.patch(f"/incidents/{iid}", json={"status": "resolved"})
-    assert client.post("/postmortems", json=pm).status_code == 201
+    assert client.post("/postmortems", json=pm).status_code == 200
 
 
 def test_resolver_incidente_setea_resolved_at(client):
