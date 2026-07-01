@@ -39,10 +39,32 @@ Entregas **dos** cosas:
 2. Una **justificación breve** (≈ media plana), **sobre las pruebas**:
 
    - ¿Qué diferencia una prueba **unitaria** de una de **integración**? Señala un ejemplo de cada una en `tests/`.
+      
+      R: Las pruebas unitarias validan una pequeña parte y aislada parte del código, por ejemplo una función en especifico o algún calculo definido. El ejemplo de pruebas unitarias se ecuentran en test_reglas.py.
+
+      Las pruebas de integración, validan varias partes del sistema trabajen correctamente en conjunto. El ejemplo de pruebas de integración se encuentran en test_integracion.py.
+
    - ¿Por qué la **pirámide de pruebas** tiene muchas unitarias y pocas de extremo a extremo?
+
+      R: La pirámide de pruebas tiene muchas pruebas unitarias porque son rápidas, simples de mantener y permiten detectar errores específicos. En cambio, las pruebas de extremo a extremo son más lentas tanto como en ejecución como en elaboración, más frágiles, ya que dependen de más componentes funcionando al mismo tiempo.
+
    - ¿Qué hace la fixture `client` del `conftest.py`? ¿Por qué cada prueba usa una **base de datos limpia**?
+
+      R: La fixture client crea un cliente de prueba para simular peticiones a la aplicación sin tener que levantarla manualmente. Permite que las pruebas hagan solicitudes como si fueran un usuario o sistema externo.
+      
+      Cada prueba usa una base de datos limpia para evitar que los datos de una prueba afecten a otra. Esto permite que los resultados sean repetibles, confiables y no dependan del orden en que se ejecutan las pruebas.
+
    - Una prueba puede "cubrir líneas" sin verificar comportamiento. ¿Cómo sabes que **realmente** prueba algo?
+
+      R: Una prueba realmente prueba algo cuando tiene una verificación clara, normalmente mediante assert. No basta con ejecutar una línea de código; la prueba debe comprobar que el resultado obtenido sea el esperado.
+      
+      Por ejemplo, no solo llamar una función, sino verificar que devuelva el valor correcto, que cree un registro, que responda con el código HTTP esperado o que maneje correctamente un error.
+
    - ¿Por qué la **etapa de test** va **antes** del build (o del deploy) en la pipeline?
+
+      R: La etapa de test va antes del build o del deploy porque permite detectar errores temprano. Así se evita construir o desplegar una versión defectuosa.
+      
+      Esto reduce riesgos, ahorra tiempo y asegura que solo el código que pasa las pruebas avance en la pipeline.
 
 > La nota pondera **que entiendas las pruebas y la pipeline**, no solo que el run quede verde.
 
